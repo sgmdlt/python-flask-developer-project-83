@@ -13,12 +13,10 @@
     </nav>
     <div class="container mt-5">
         <h1 class="text-center">Welcome to Page Analyzer</h1>
-        <form method="POST" action="{{ url_for('urls') }}">
-            <div class="form-group">
-                <label for="url">Enter URL</label>
-                <input type="text" class="form-control" id="url" name="url" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <form action="{{ url_for('post_url')}} " method="post" class="d-flex justify-content-center">
+            <label for="text" class="visually-hidden">Url для проверки</label>
+            <input type="text" name="url" placeholder="https://www.example.com"value="{{ url_name }}"  class="form-control form-control-lg" required>
+            <input type="submit" class="btn btn-primary  btn-lg ms-3 px-5 text-uppercase mx-3" value="Проверить">
         </form>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
